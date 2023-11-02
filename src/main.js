@@ -42,7 +42,7 @@ const axios = require('axios');
             'branchName': `${githubContext.ref_name}`
         };
         console.log("paylaod to register package: " + JSON.stringify(payload));
-        console.debug("Debug log for register package");
+  //      console.debug("Debug log for register package");
     } catch (e) {
         core.setFailed(`Exception setting the payload to register package ${e}`);
         return;
@@ -86,6 +86,7 @@ const axios = require('axios');
             core.setFailed('Invalid Credentials. Please correct the credentials and try again.');
         } else {
             core.setFailed('ServiceNow Package is NOT created. Please check ServiceNow logs for more details.');
+            core.setFailed('[ServiceNow DevOps] Register Package. Error log :'+e.message);
         }
     }
     
